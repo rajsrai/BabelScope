@@ -952,7 +952,8 @@ const styles = {
     width: '300px'
   },
   othertranslation: {
-    color: 'black',
+    color: 'white',
+    background: 'rgb(0, 188, 212)',
     border: '#ccc 1px solid',
     padding: '1em',
     margin: '1em',

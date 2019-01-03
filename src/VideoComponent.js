@@ -171,7 +171,7 @@ export default class VideoComponent extends Component {
 		return (
 			<Card>
 				<CardText>
-					<div className="flex-container">
+					<div className="flex-container" id="local-media">
 						{showLocalTrack}
 						<div className="flex-item">
 							<TextField

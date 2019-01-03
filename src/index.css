@@ -31,6 +31,10 @@
   width: inherit;
   height: 200px;
 }
+#local-media video {
+  width: inherit;
+  height: 200px;
+}
 * {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
