@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import socketIO from 'socket.io-client'
 import Select from 'react-select'
 import RaisedButton from 'material-ui/RaisedButton';
+import { REACT_APP_API_KEY } from '../credentials.js';
 
 
 
@@ -16,7 +17,7 @@ const recognition = new SpeechRecognition()
 recognition.continous = true
 recognition.interimResults = true
 recognition.lang = 'en-US'
-
+const API_KEY = process.env.REACT_APP_API_KEY;
 //------------------------LANGUAGES--------------------------------------
 const options = [
   {
@@ -789,7 +790,7 @@ class Speech extends Component {
     }, this.handleListen)
   }
 
-  handleListen() {
+  handleListen () {
 
     console.log('listening?', this.state.listening)
 
@@ -824,13 +825,13 @@ class Speech extends Component {
       let toLang = this.state.selectedOption.value
       // let text = 'something to translate';
 
-      // const API_KEY = process.env.API_KEY;
 
-      let url = 'https://translation.googleapis.com/language/translate/v2?key=AIzaSyAwRNzNqV81bswCd_H19q5aGZVePzFPDjU';
+
+
+      let url = `https://translation.googleapis.com/language/translate/v2?key=${REACT_APP_API_KEY}`;
       url += '&q=' + encodeURI(finalTranscript);
       url += `&source=${fromLang}`;
       url += `&target=${toLang}`;
-      console.log(url)
       fetch(url, {
         method: 'GET',
         headers: {

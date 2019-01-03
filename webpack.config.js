@@ -2,7 +2,8 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require("webpack");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const path = require("path");
-require("dotenv").config();
+const myEnv = require("dotenv").config();
+
 
 var configFunc = function(){
     var config = {
@@ -41,6 +42,9 @@ var configFunc = function(){
                 hash: true,
                 template: path.join(__dirname , "/public/index.html"),
                 inject: "body"
+            }),
+            new webpack.DefinePlugin({
+              REACT_APP_API_KEY: JSON.stringify("DEV"),
             }),
             new webpack.HotModuleReplacementPlugin(),
             new webpack.BannerPlugin("React Twilio"),

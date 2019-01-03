@@ -11,7 +11,7 @@ import VideoComponent from './VideoComponent'
 let dom = document.getElementById("app");
 
 render(
-<MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
+  <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
         <div>
           <VideoComponent />
         </div>
