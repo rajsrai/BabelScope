@@ -1,8 +1,9 @@
+require("dotenv").config();
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require("webpack");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const path = require("path");
-const myEnv = require("dotenv").config();
+
 
 
 var configFunc = function(){
@@ -44,13 +45,13 @@ var configFunc = function(){
                 inject: "body"
             }),
             new webpack.DefinePlugin({
-              REACT_APP_API_KEY: JSON.stringify("DEV"),
+              REACT_APP_API_KEY: JSON.stringify("development"),
             }),
             new webpack.HotModuleReplacementPlugin(),
             new webpack.BannerPlugin("React Twilio"),
             new ExtractTextPlugin("[name]-[hash].css")
         ]};
-    if(process.env.NODE_ENV === "PROD") {
+    if(process.env.NODE_ENV === "production") {
         config.plugins.push(new webpack.optimize.UglifyJsPlugin());
         config.plugins.push(new webpack.optimize.CommonsChunkPlugin({
             name: "commons",
